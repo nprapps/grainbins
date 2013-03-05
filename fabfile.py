@@ -336,8 +336,8 @@ Project-specific commands
 """
 
 def create_database():
-    local('csvsql --db sqlite:///data/test-grain.db -e latin-1 --insert data/grain.csv')
-    local('echo "alter table grain add column narrative text;" | sqlite3 data/test-grain.db')
+    local('csvsql --db sqlite:///data/grain.db -e latin-1 --insert data/grain.csv')
+    local('echo "alter table grain add column narrative text;" | sqlite3 data/grain.db')
 
 def scrape_incidents():
     import scraper
