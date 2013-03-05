@@ -340,5 +340,4 @@ def create_database():
     local('echo "alter table grain add column narrative text;" | sqlite3 data/test-grain.db')
 
 def scrape_incidents():
-    import scraper
-    scraper.scrape_osha_site()
+    local('./scraper.py')
