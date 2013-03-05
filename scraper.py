@@ -25,5 +25,5 @@ for incident in Incident.select():
             query = Incident.update(narrative=narrative).where(Incident.inspection_no == incident.inspection_no)
             print query
             query.execute()
-        except error:
+        except Exception as error:
             print 'Failed: %s, error is: %s' % (incident.inspection_no, error)
