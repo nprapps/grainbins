@@ -31,7 +31,8 @@ pip-log.txt
 gzip
 
 node_modules
-www/*.html
+www/test_widget.html
+www/widget.html
 www/css/*.min.css
 www/css/*.less.css
 www/js/*.min.js
