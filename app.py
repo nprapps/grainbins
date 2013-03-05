@@ -2,6 +2,7 @@
 
 import json
 from mimetypes import guess_type
+from models import Incident
 import urllib
 
 import envoy
@@ -17,7 +18,8 @@ def index():
     """
     Example view demonstrating rendering a simple HTML page.
     """
-    return render_template('index.html', **make_context())
+    incidents = Incident.select().order_by(Incident.age.asc())
+    return render_template('index.html', incidents=incidents, **make_context())
 
 @app.route('/widget.html')
 def widget():
@@ -58,7 +60,7 @@ def _templates_js():
 def _app_config_js():
     config = flatten_app_config()
     js = 'window.APP_CONFIG = ' + json.dumps(config)
-    
+
     return js, 200, { 'Content-Type': 'application/javascript' }
 
 # Server arbitrary static files on-demand
@@ -78,7 +80,7 @@ def urlencode_filter(s):
     """
     if type(s) == 'Markup':
         s = s.unescape()
-        
+
     s = s.encode('utf8')
     s = urllib.quote_plus(s)
 

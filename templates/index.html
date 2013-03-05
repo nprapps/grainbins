@@ -1,38 +1,42 @@
 {% extends '_base.html' %}
 
+{% block extra_css %}
+    {{ CSS.push('less/grainbins.less') }}
+{% endblock %}
+
 {% block header_content %}
 <header>
 	<div class="container">
 		<div class="row">
 			<div class="span12">
-				<h1>Across-The-Top Header</h1>
-				<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+				<h1>Grain Bin Deaths</h1>
+				<h2>Brief intro to this grim app.</h2>
 			</div>
 		</div>
 	</div>
 </header>
 {% endblock %}
 
+{% block full_content %}
+<section id="cards">
+    {% for incident in incidents %}
+        <div class="tab">
+            {% if not incident.name and not incident.age %}
+                <div class="tab-header">Name unknown, age unknown / {{ incident.state }}</div>
+            {% elif not incident.age %}
+                <div class="tab-header">{{ incident.name }}, age unknown / {{ incident.state }}</div>
+            {% elif not incident.name %}
+                <div class="tab-header">Name unknown, {{ incident.age }} years old / {{ incident.state }}</div>
+            {% else %}
+                <div class="tab-header">{{ incident.name }}, {{ incident.age }} years old / {{ incident.state }}</div>
+            {% endif %}
 
-{% block content %}
-<h1>{{ PROJECT_NAME }}</h1>
-<div id="story-meta">
-	<p class="byline">by <span>Name Here</span></p>
-	<p class="dateblock">
-		<span class="date">January 22, 2013</span>
-		<span class="time"> 3:37 AM</span>
-	</p>
-</div>
-
-<p id="template-example"></p>
-{% endblock %}
-
-
-{% block wide_content %}
-<div class="row">
-	<div class="span12">
-		<h2>This content goes to 12</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-	</div>
-</div>
+            {% if incident.narrative %}
+                <div class="tab-content">{{ incident.narrative }}</div>
+            {% else %}
+                <div class="tab-content">This person's story could not be found.</div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</section>
 {% endblock %}
