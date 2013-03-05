@@ -286,7 +286,7 @@ def _confirm(message):
     answer = prompt(message, default="Not at all")
 
     if answer.lower() not in ('y', 'yes', 'buzz off','screw you'):
-        exit() 
+        exit()
 
 def shiva_the_destroyer():
     """
@@ -330,3 +330,15 @@ def super_merge():
     local('git checkout master')
 
     local('git push --all')
+
+"""
+Project-specific commands
+"""
+
+def create_database():
+    local('csvsql --db sqlite:///data/test-grain.db -e latin-1 --insert data/grain.csv')
+    local('echo "alter table grain add column narrative text;" | sqlite3 data/test-grain.db')
+
+def scrape_incidents():
+    import scraper
+    scraper.scrape_osha_site()
