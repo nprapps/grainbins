@@ -23,6 +23,15 @@
 {% block full_content %}
 <section id="cards">
 	<div class="container">
+        <div class="row">
+            <div class="span12 state-filters">
+                <a href="javascript:;" class="filter-state active" data-state="ALL">Show all</a>
+                {% for state in states %}
+                    <a href="javascript:;" class="filter-state" data-state="{{ state }}">{{ state }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
 		<div class="row">
 			<div class="span12">
 				{% for incident in incidents %}

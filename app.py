@@ -19,7 +19,9 @@ def index():
     Example view demonstrating rendering a simple HTML page.
     """
     incidents = Incident.select().order_by(Incident.age.asc())
-    return render_template('index.html', incidents=incidents, **make_context())
+    states = [i.state for i in Incident.select(Incident.state).distinct().order_by(Incident.state)]
+
+    return render_template('index.html', incidents=incidents, states=states, **make_context())
 
 @app.route('/widget.html')
 def widget():

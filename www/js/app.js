@@ -1,10 +1,18 @@
 $(function() {
-    var context = $.extend(APP_CONFIG, {
-        'template_path': 'jst/example.html',
-        'config': JSON.stringify(APP_CONFIG, null, 4)
+    var $states = $('.filter-state'); 
+    var $cards = $('.card');
+    
+    $states.click(function() {
+        var state = $(this).data('state');
+
+        if (state == 'ALL') {
+            $cards.show();
+        } else {
+            $cards.hide();
+            $cards.filter('.state-' + state).show();
+        }
+
+        $states.removeClass('active');
+        $(this).addClass('active');
     });
-
-    var html = JST.example(context);
-
-    $('#template-example').html(html);
 });
