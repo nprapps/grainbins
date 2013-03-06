@@ -1,0 +1,7 @@
+#!/bin/zsh
+/usr/local/bin/sqlite3 ./data/grain.db <<!
+.headers on
+.mode csv
+.output dump.csv
+select * from grain;
+!

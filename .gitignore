@@ -38,3 +38,4 @@ www/js/*.min.js
 www/js/templates.js
 www/js/app_config.js
 data/*.db
+data/*.csv
