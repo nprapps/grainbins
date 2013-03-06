@@ -11,6 +11,9 @@
 			<div class="span12">
 				<h1>Grain Bin Deaths</h1>
 				<h2>Brief intro to this grim app.</h2>
+				<p class="footnote">
+					<strong>Note:</strong> The data come from the U.S. Occupational Safety and Health Administration worksite inspection database, known as IMIS. In some cases, grain incident details — such as victim names and ages — were added by NPR based on news reports and public records. The incident narratives, however, were written entirely by the agency and not edited.
+				</p>
 			</div>
 		</div>
 	</div>
@@ -23,12 +26,15 @@
 		<div class="row">
 			<div class="span12">
 				{% for incident in incidents %}
-					<div class="card">
+					<div class="card {% if incident.state %}state-{{ incident.state }}{% endif %}">
 						<div class="card-header">
 							<h3>
 								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>, 
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
-								<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
+								<span class="meta">
+									<span class="date">Date: {% if incident.incident_date %}{{ incident.incident_date }}{% else %}Unknown{% endif %}</span>
+									<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
+								</span>
 							</h3>
 						</div>
 			
@@ -40,11 +46,11 @@
 								{% else %}
 									<p>This person's story could not be found.</p>
 								{% endif %}
-								<p class="date">Incident date: {% if incident.incident_date %}{{ incident.incident_date }}{% else %}Unknown{% endif %}</p>
 							</div>
 							<div class="fines">
+								<h4>OSHA Fines Assessed</h4>
 								<p class="fine-initial">Initial fine: {% if incident.initial_fine %}${{ incident.initial_fine }}{% else %}Unknown{% endif %}</p>
-								<p class="fine-final">Final fine: {% if incident.current_fine %}${{ incident.current_fine }}{% else %}Unknown{% endif %}</p>
+								<p class="fine-final">After appeal: {% if incident.current_fine %}${{ incident.current_fine }}{% else %}Unknown{% endif %}</p>
 							</div>
 						</div>
 			
@@ -52,7 +58,9 @@
 							<h3>
 								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>, 
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
-								<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
+								<span class="meta">
+									<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
+								</span>
 							</h3>
 						</div>
 					</div>

@@ -1,10 +1,14 @@
+header p.footnote {
+	font-size: 12px; line-height: 1.5; color: #666; margin: 22px 0 0 0;
+}
+
 #cards {
 	padding-top: 22px;
 	
 	.card {
 		background-color: #f1f1f1;
 		border: 1px solid #ddd;
-		margin-bottom: 11px; 
+		margin-bottom: 22px; 
 	}
 	h3 { 
 		color: #444;
@@ -13,36 +17,35 @@
 		
 		.name { font-weight: bold; }
 		.age { font-size: 80%; color: #666; }
-		.state { font-size: 80%; color: #666; float: right; padding-top: 3px; }
+		.meta { font-size: 80%; color: #666; float: right; padding-top: 3px; }
+		.state { padding-left: 16px; }
 	}
     .card-header {
         padding: 22px 22px;
         background-color: #ddd;
     }
     .card-footer {
-    	margin: 11px 22px;
+    	margin: 0 22px 11px 22px;
     	padding-top: 11px;
-    	border-top: 1px solid #ccc;
+    	border-top: 1px solid #ddd;
     	opacity: .6;
 
-    	h3 { font-size: 80%; }
+    	h3 { font-size: 12px; }
     }
     .card-content {
     	padding: 22px;
     	
-    	h4, p {
-    		width: 70%;
-    		max-width: 650px;
-    		margin-left: auto;
-    		margin-right: auto;
-    	}
-    	
     	h4 {
-    		font-size: 16px;
+    		font-size: 15px;
+    		line-height: 1.5;
     		color: #666;
+    		width: 20%;
+    		float: left;
+    		margin-top: 0;
     	}
     		
     	p {	
+    		margin-left: 25%;
     		color: #454545;
     		margin-bottom: 11px;
     		
@@ -62,6 +65,17 @@
 				}
 			}
     	}
+    	
+    	.fines { 
+    		border-top: 1px solid #ddd;
+    		padding-top: 22px;
+    		margin-top: 11px;
+    	}
+    	
+    	.fines:after, 
+    	.coroner-report:after {
+    		content: "."; display: block; height: 0; clear: both; visibility: hidden;
+    	}
     }
 }
 
@@ -69,17 +83,14 @@
 	#cards {
 		.card-header {
 			padding: 15px 11px;
-			h3 .state {
-				float: none;
-				display: block;
-			}
+			h3 .meta { float: none; display: block; margin-top: 3px; }
 		}
 		.card-footer {
 			margin: 11px;
 		}
 		.card-content {
 			padding: 11px;
-			h4, p { width: auto; max-width: none; }
+			h4, p { width: auto; float: none; margin-left: 0; }
 		}
 	}
 }
