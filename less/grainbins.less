@@ -125,7 +125,14 @@ header p.footnote {
 }
 
 @media (max-width: 600px) {
-	#cards .card-header h3 .meta { float: none; display: block; margin-top: 3px; }
+	#cards .card-header h3 {
+		font-size: 16px;
+		.meta { float: none; display: block; margin-top: 3px; }
+	}
+	#cards .card-content {
+		p.quote { font-size: 17px; }
+		p.quote span { font-size: 42px; }
+	}
 }
 @media (max-width: 480px) {
 	#cards {
@@ -138,7 +145,10 @@ header p.footnote {
 		}
 		.card-content {
 			padding: 11px;
-			h4, .report-info .fine-info { width: auto; float: none; margin-left: 0; }
+			h4,
+			.report-info, 
+			.fine-info { width: auto; float: none; margin-left: 0; }
+			h4 { margin-bottom: 11px; }
 		}
 	}
 }
