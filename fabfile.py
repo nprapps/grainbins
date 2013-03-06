@@ -10,6 +10,9 @@ import app
 import app_config
 from etc import github
 
+import csv
+from datetime import *
+
 """
 Base configuration
 """
@@ -339,19 +342,39 @@ def download_csv():
     print 'Downloading file from google docs.'
     r = requests.get('https://docs.google.com/spreadsheet/pub?key=0AiINjEdvBDPadHBLNjdlX3hvaEFqbnNTZVBpSGZEbkE&single=true&gid=0&output=csv')
     print 'Deleting local csv copy.'
-    local('rm -f data/grain.csv')
+    local('rm -f data/grain_gdoc.csv')
     print 'Writing new csv copy.'
-    with open('data/grain.csv', 'wb') as f:
+    with open('data/grain_gdoc.csv', 'wb') as f:
         f.write(r.content)
 
 def create_database():
     print 'Inserting data into SQLite.'
     local('csvsql --db sqlite:///data/grain.db -e latin-1 --insert data/grain.csv')
 
+def parse_dates():
+    with open('data/grain_gdoc.csv', 'rb') as ifile:
+        with open('data/grain.csv', 'wb') as ofile:
+            reader = csv.reader(ifile, delimiter=',', quotechar='"')
+            writer = csv.writer(ofile, delimiter=',', quotechar='"')
+            rownum = 0
+            for row in reader:
+                date_str = row[5]
+                year = date_str[0:4]
+                month = date_str[4:6]
+                date = date_str[6:8]
+                if rownum != 0:
+                    row[5] = "%s-%s-%s" % (month, date, year)
+                writer.writerow(row)
+                rownum += 1
+
+    print('Writing new csv with cleaned dates.')
+
 def local_bootstrap():
     download_csv()
     print('Deleting local SQLite DB copy.')
     local('rm -f data/grain.db')
+    print('Cleaning up dates in csv.')
+    parse_dates()
     create_database()
 
 def scrape_incidents():

@@ -19,6 +19,7 @@ def index():
     Example view demonstrating rendering a simple HTML page.
     """
     incidents = Incident.select().order_by(Incident.age.asc())
+    print incidents
     return render_template('index.html', incidents=incidents, **make_context())
 
 @app.route('/widget.html')
