@@ -19,24 +19,37 @@
 
 {% block full_content %}
 <section id="cards">
-    {% for incident in incidents %}
-        <div class="tab">
-            {% if not incident.name and not incident.age %}
-                <div class="tab-header">Name unknown, age unknown / {{ incident.state }}</div>
-            {% elif not incident.age %}
-                <div class="tab-header">{{ incident.name }}, age unknown / {{ incident.state }}</div>
-            {% elif not incident.name %}
-                <div class="tab-header">Name unknown, {{ incident.age }} years old / {{ incident.state }}</div>
-            {% else %}
-                <div class="tab-header">{{ incident.name }}, {{ incident.age }} years old / {{ incident.state }}</div>
-            {% endif %}
-
-            {% if incident.narrative %}
-                <div class="tab-content">{{ incident.narrative }}</div>
-            {% else %}
-                <div class="tab-content">This person's story could not be found.</div>
-            {% endif %}
-        </div>
-    {% endfor %}
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				{% for incident in incidents %}
+					<div class="card">
+						<div class="card-header">
+							<h3>
+						{% if not incident.name and not incident.age %}
+							Name unknown, age unknown / {{ incident.state }}
+						{% elif not incident.age %}
+							{{ incident.name }}, age unknown / {{ incident.state }}
+						{% elif not incident.name %}
+							Name unknown, {{ incident.age }} years old / {{ incident.state }}
+						{% else %}
+							{{ incident.name }}, {{ incident.age }} years old / {{ incident.state }}
+						{% endif %}
+							</h3>
+						</div>
+			
+						<div class="card-content">
+						{% if incident.narrative %}
+							<p>{{ incident.narrative }}</p>
+						{% else %}
+							<p>This person's story could not be found.</p>
+						{% endif %}
+						</div>
+			
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
 </section>
 {% endblock %}
