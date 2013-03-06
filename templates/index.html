@@ -29,10 +29,10 @@
 					<div id="id{{ incident.inspection_no }}" class="card {% if incident.state %}state-{{ incident.state }}{% endif %}">
 						<div class="card-header">
 							<h3>
-								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>, 
+								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>,
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
 								<span class="meta">
-									<span class="date">Date: {% if incident.incident_date %}{{ incident.incident_date }}{% else %}Unknown{% endif %}</span>
+									<span class="date">Date: {% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Unknown{% endif %}</span>
 									<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
 								</span>
 							</h3>
@@ -56,7 +56,7 @@
 
 						<div class="card-footer">
 							<h3>
-								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>, 
+								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>,
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
 								<span class="meta">
 									<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
