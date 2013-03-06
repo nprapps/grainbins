@@ -17,6 +17,18 @@
 </header>
 {% endblock %}
 
+/*
+    inspection_no = PrimaryKeyField()
+    name = CharField()
+    age = IntegerField()
+    incident_date = DateField()
+    state = CharField()
+    zip_code = IntegerField()
+    initial_fine = IntegerField()
+    current_fine = IntegerField()
+    narrative = TextField()
+*/
+
 {% block full_content %}
 <section id="cards">
 	<div class="container">
@@ -33,12 +45,19 @@
 						</div>
 			
 						<div class="card-content">
-							<h4>Coroner's Report</h4>
-						{% if incident.narrative %}
-							<p class="quote"><span>&ldquo;</span>{{ incident.narrative }}</p>
-						{% else %}
-							<p>This person's story could not be found.</p>
-						{% endif %}
+							<div class="coroner-report">
+								<h4>Coroner's Report</h4>
+								{% if incident.narrative %}
+									<p class="quote"><span>&ldquo;</span>{{ incident.narrative }}</p>
+								{% else %}
+									<p>This person's story could not be found.</p>
+								{% endif %}
+								<p class="date">Incident date: {% if incident.incident_date %}{{ incident.incident_date }}{% else %}Unknown{% endif %}</p>
+							</div>
+							<div class="fines">
+								<p class="fine-initial">Initial fine: {% if incident.initial_fine %}${{ incident.initial_fine }}{% else %}Unknown{% endif %}</p>
+								<p class="fine-final">Final fine: {% if incident.current_fine %}${{ incident.current_fine }}{% else %}Unknown{% endif %}</p>
+							</div>
 						</div>
 			
 					</div>
