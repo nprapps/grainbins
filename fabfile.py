@@ -353,3 +353,9 @@ def local_bootstrap():
     print('Deleting local SQLite DB copy.')
     local('rm -f data/grain.db')
     create_database()
+
+def scrape_incidents():
+    local('./scraper.py')
+
+def dump_database():
+    local('./dump_db > data/dump.csv')
