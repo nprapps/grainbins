@@ -49,8 +49,8 @@
 							</div>
 							<div class="fines">
 								<h4>OSHA Fines Assessed</h4>
-								<p class="fine-initial">Initial fine: {% if incident.initial_fine %}${{ incident.initial_fine }}{% else %}Unknown{% endif %}</p>
-								<p class="fine-final">After appeal: {% if incident.current_fine %}${{ incident.current_fine }}{% else %}Unknown{% endif %}</p>
+								<p class="fine-initial"><strong>Initial fine:</strong> <span class="bar"></span> <span class="amt">{% if incident.initial_fine %}${{ incident.initial_fine }}{% else %}Unknown{% endif %}</span></p>
+								<p class="fine-final"><strong>After appeal:</strong> <span class="bar"></span> <span class="amt">{% if incident.current_fine %}${{ incident.current_fine }}{% else %}Unknown{% endif %}</span></p>
 							</div>
 						</div>
 			
