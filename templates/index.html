@@ -32,7 +32,7 @@
 								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>,
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
 								<span class="meta">
-									<span class="date">Date: {% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Unknown{% endif %}</span>
+									<span class="date">{% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Date unknown{% endif %}</span>
 									<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
 								</span>
 							</h3>
@@ -73,6 +73,7 @@
 								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>,
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
 								<span class="meta">
+									<span class="date">{% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Date unknown{% endif %}</span>
 									<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
 								</span>
 							</h3>
