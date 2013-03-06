@@ -4,6 +4,7 @@ from glob import glob
 import os
 
 from fabric.api import *
+import requests
 
 import app
 import app_config
@@ -334,10 +335,21 @@ def super_merge():
 """
 Project-specific commands
 """
+def download_csv():
+    print 'Downloading file from google docs.'
+    r = requests.get('https://docs.google.com/spreadsheet/pub?key=0AiINjEdvBDPadHBLNjdlX3hvaEFqbnNTZVBpSGZEbkE&single=true&gid=0&output=csv')
+    print 'Deleting local csv copy.'
+    local('rm -f data/grain.csv')
+    print 'Writing new csv copy.'
+    with open('data/grain.csv', 'wb') as f:
+        f.write(r.content)
 
 def create_database():
+    print 'Inserting data into SQLite.'
     local('csvsql --db sqlite:///data/grain.db -e latin-1 --insert data/grain.csv')
-    local('echo "alter table grain add column narrative text;" | sqlite3 data/grain.db')
 
-def scrape_incidents():
-    local('./scraper.py')
+def local_bootstrap():
+    download_csv()
+    print('Deleting local SQLite DB copy.')
+    local('rm -f data/grain.db')
+    create_database()
