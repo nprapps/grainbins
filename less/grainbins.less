@@ -44,9 +44,9 @@ header p.footnote {
     	}
     		
     	p {	
-    		margin-left: 25%;
     		color: #454545;
     		margin-bottom: 11px;
+    		font-size: 15px;
     		
     		&.quote {
 				padding-left: 28px;
@@ -65,13 +65,47 @@ header p.footnote {
 			}
     	}
     	
+    	.report-info,
+    	.fine-info {
+    		margin-left: 25%;
+    		max-width: 600px;
+    	}
+    	
     	.fines { 
     		border-top: 1px solid #ddd;
     		padding-top: 22px;
     		margin-top: 11px;
+    		
+    		p { 
+    			margin-bottom: 0;
+    			height: 1.7em;
+    			overflow: hidden;
+    		}
+    		strong { 
+    			width: 25%; 
+    			display: inline-block;
+    			float: left;
+    		}
+			.amt-wrap {
+				width: 75%; 
+				display: inline-block; 
+				float: right;
+				position: relative;
+			}
+			.bar {
+				display: inline-block;
+				background-color: #bccae5;
+				width: 0%;
+				height: 1.5em;
+			}
+			.amt { 
+				position: absolute;
+				left: 6px;
+			}
     	}
-    	
-    	.fines:after, 
+    	.fines:after,
+    	.fine-info:after,
+    	.fines p:after,
     	.coroner-report:after {
     		content: "."; display: block; height: 0; clear: both; visibility: hidden;
     	}
@@ -92,7 +126,7 @@ header p.footnote {
 		}
 		.card-content {
 			padding: 11px;
-			h4, p { width: auto; float: none; margin-left: 0; }
+			h4, .report-info .fine-info { width: auto; float: none; margin-left: 0; }
 		}
 	}
 }
