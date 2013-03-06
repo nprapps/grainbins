@@ -1,10 +1,12 @@
 #cards {
+    overflow: scroll;
 	padding-top: 22px;
 	
 	.card {
 		background-color: #f1f1f1;
 		border: 1px solid #ddd;
 		margin-bottom: 11px; 
+        display: none;
 	}
 	h3 { 
 		color: #444;
@@ -63,6 +65,11 @@
 			}
     	}
     }
+}
+
+.spacer {
+    width: 100%;
+    display: block;
 }
 
 @media (max-width: 480px) {
