@@ -7,18 +7,69 @@
 		margin-bottom: 11px; 
 	}
     .card-header {
-        padding: 22px 11px;
+        padding: 22px 22px;
         background-color: #ddd;
         
         h3 { 
-        	color: #333;
+        	color: #444;
         	margin: 0;
         	font-size: 18px;
+        	
+        	.name { font-weight: bold; }
+        	.age { font-size: 80%; color: #666; }
+        	.state { font-size: 80%; color: #666; float: right; padding-top: 3px; }
         }
     }
     .card-content {
-    	padding: 11px;
+    	padding: 22px;
     	
-    	p {	margin-bottom: 11px; }
+    	h4, p {
+    		width: 70%;
+    		max-width: 650px;
+    		margin-left: auto;
+    		margin-right: auto;
+    	}
+    	
+    	h4 {
+    		font-size: 16px;
+    		color: #666;
+    	}
+    		
+    	p {	
+    		color: #454545;
+    		margin-bottom: 11px;
+    		
+    		&.quote {
+				padding-left: 28px;
+				font: normal 20px/1.2 Georgia, serif;
+				position: relative;
+				
+				span {
+					position: absolute;
+					left: -1px;
+					top: -14px;
+					display: block;
+					font-size: 50px;
+					font-weight: bold;
+					color: #787878;
+				}
+			}
+    	}
     }
+}
+
+@media (max-width: 480px) {
+	#cards {
+		.card-header {
+			padding: 15px 11px;
+		}
+		.card-header h3 .state {
+			float: none;
+			display: block;
+		}
+		.card-content {
+			padding: 11px;
+			h4, p { width: auto; max-width: none; }
+		}
+	}
 }

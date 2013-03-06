@@ -26,21 +26,16 @@
 					<div class="card">
 						<div class="card-header">
 							<h3>
-						{% if not incident.name and not incident.age %}
-							Name unknown, age unknown / {{ incident.state }}
-						{% elif not incident.age %}
-							{{ incident.name }}, age unknown / {{ incident.state }}
-						{% elif not incident.name %}
-							Name unknown, {{ incident.age }} years old / {{ incident.state }}
-						{% else %}
-							{{ incident.name }}, {{ incident.age }} years old / {{ incident.state }}
-						{% endif %}
+								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>, 
+								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
+								<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
 							</h3>
 						</div>
 			
 						<div class="card-content">
+							<h4>Coroner's Report</h4>
 						{% if incident.narrative %}
-							<p>{{ incident.narrative }}</p>
+							<p class="quote"><span>&ldquo;</span>{{ incident.narrative }}</p>
 						{% else %}
 							<p>This person's story could not be found.</p>
 						{% endif %}
