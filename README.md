@@ -1,4 +1,4 @@
-nprapps' Project Template
+Grain Bins
 =========================
 
 * [About this template](#about-this-template)
@@ -17,10 +17,10 @@ nprapps' Project Template
 * [Deploy to S3](#deploy-to-s3)
 * [Deploy to EC2](#deploy-to-ec2)
 
-About this template
+About Grain Bins
 -------------------
 
-This template provides a a project skeleton suitable for any project that is to be served entirely as flat files. Facilities are provided for rendering html from data, compiling LESS into CSS, deploying to S3, etc. (It actually supports deploying to servers too, but that's less well-tested.)
+Text from @stiles incoming.
 
 What's in here?
 ---------------
@@ -82,16 +82,6 @@ mkvirtualenv $NEW_PROJECT_NAME
 pip install -r requirements.txt
 ```
 
-Project secrets
----------------
-
-Project secrets should **never** be stored in ``app_config.py`` or anywhere else in the repository. They will be leaked to the client if you do. Instead, always store passwords, keys, etc. in environment variables and document that they are needed here in the README.
-
-Bootstrap issues
-----------------
-
-The app-template can automatically setup your Github repo with our default labels and tickets by running ``fab bootstrap_issues``. You will be prompted for your Github username and password.
-
 Adding a template/view
 ----------------------
 
@@ -99,7 +89,7 @@ A site can have any number of rendered templates (i.e. pages). Each will need a 
 
 * Add a template to the ``templates`` directory. Ensure it extends ``_base.html``.
 * Add a corresponding view function to ``app.py``. Decorate it with a route to the page name, i.e. ``@app.route('/filename.html')``
-* By convention only views that end with ``.html`` and do not start with ``_``  will automatically be rendered when you call ``fab render``. 
+* By convention only views that end with ``.html`` and do not start with ``_``  will automatically be rendered when you call ``fab render``.
 
 Run the project locally
 -----------------------
@@ -108,6 +98,7 @@ A flask app is used to run the project locally. It will automatically recompile 
 
 ```
 workon $NEW_PROJECT_NAME
+fab local_bootstrap
 python app.py
 ```
 
@@ -125,7 +116,7 @@ Compile LESS to CSS, compile javascript templates to Javascript and minify all a
 
 ```
 workon $NEW_PROJECT_NAME
-fab render 
+fab render
 ```
 
 (This is done automatically whenever you deploy to S3.)
@@ -147,7 +138,7 @@ Deploy to S3
 fab staging master deploy
 ```
 
-Deploy to EC2 
+Deploy to EC2
 -------------
 
 The current configuration is for running cron jobs only. Web server configuration is not included.
@@ -155,5 +146,5 @@ The current configuration is for running cron jobs only. Web server configuratio
 * In ``fabfile.py`` set ``env.deploy_to_servers`` to ``True``.
 * Optionally, set ``env.install_crontab`` to ``True``.
 * Run ``fab staging master setup`` to configure the server.
-* Run ``fab staging master deploy`` to deploy the app. 
+* Run ``fab staging master deploy`` to deploy the app.
 
