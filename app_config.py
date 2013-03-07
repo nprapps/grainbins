@@ -9,7 +9,7 @@ They will be exposed to users. Use environment variables instead.
 
 import os
 
-PROJECT_NAME = 'Grain Bins'
+PROJECT_NAME = 'Grain Bin Deaths'
 DEPLOYED_NAME = 'grainbins'
 REPOSITORY_NAME = 'grainbins'
 
