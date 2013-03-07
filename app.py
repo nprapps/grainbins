@@ -18,7 +18,9 @@ def index():
     """
     Example view demonstrating rendering a simple HTML page.
     """
-    incidents = Incident.select().order_by(Incident.age.asc())
+    incidents_with_age = Incident.select().where(Incident.age > 0).order_by(Incident.age.asc())
+    incidents_without_age = Incident.select().where(Incident.age >> None).order_by(Incident.age.asc())
+    incidents = list(incidents_with_age) + list(incidents_without_age)
     states = [i.state for i in Incident.select(Incident.state).distinct().order_by(Incident.state)]
 
     return render_template('index.html', incidents=incidents, states=states, **make_context())
