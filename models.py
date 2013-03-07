@@ -12,10 +12,10 @@ class Incident(Model):
     But some of them have dots and stuff in them.
     """
     # First round of fields.
-    inspection_no = PrimaryKeyField()
+    inspection_no = CharField()
     name = CharField()
     age = IntegerField()
-    incident_date = CharField()
+    incident_date = PrimaryKeyField()
     state = CharField()
     zip_code = IntegerField()
     initial_fine = IntegerField()
@@ -38,14 +38,14 @@ class Incident(Model):
         """
         Return the OSHA URL for this incident.
         """
-        return
+        return 'http://www.osha.gov/pls/imis/establishment.inspection_detail?id=%s' % self.inspection_no
 
     def clean_incident_date(self):
         """
         Return a prettified version of the incident date.
         """
         date = datetime.date(
-            int(self.incident_date[0:4].strip()),
-            int(self.incident_date[4:6].strip()),
-            int(self.incident_date[6:8].strip()))
+            int(str(self.incident_date)[0:4].strip()),
+            int(str(self.incident_date)[4:6].strip()),
+            int(str(self.incident_date)[6:8].strip()))
         return date.strftime('%B %e, %Y')
