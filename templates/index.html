@@ -79,13 +79,13 @@
 									<p class="fine-initial"><strong>Initial fine:</strong>
 										<span class="amt-wrap">
 											<span class="bar" data-amt="{{ incident.initial_fine }}"></span>
-											<span class="amt">{% if incident.initial_fine %}${{ incident.initial_fine }}{% else %}Unknown{% endif %}</span>
+											<span class="amt">{% if incident.initial_fine %}${{ incident.clean_fine_amount(incident.initial_fine) }}{% else %}Unknown{% endif %}</span>
 										</span>
 									</p>
 									<p class="fine-final"><strong>After appeal:</strong>
 										<span class="amt-wrap">
 											<span class="bar" data-amt="{{ incident.current_fine }}"></span>
-											<span class="amt">{% if incident.current_fine %}${{ incident.current_fine }}{% else %}Unknown{% endif %}</span>
+											<span class="amt">{% if incident.current_fine %}${{ incident.clean_fine_amount(incident.current_fine) }}{% else %}Unknown{% endif %}</span>
 										</span>
 									</p>
 								</div>
