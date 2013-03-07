@@ -19,11 +19,14 @@ $(function() {
 
         $states.removeClass('active');
         $(this).addClass('active');
+        
+        $state_hdr.removeClass('active');
+    	$state_btns.removeClass('active');
     });
     
     // css classes to show/hide only defined for mobile view
     $state_hdr.click(function() {
-    	$(this).toggleClass('active');
+    	$state_hdr.toggleClass('active');
     	$state_btns.toggleClass('active');
     });
 
