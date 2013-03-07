@@ -1,5 +1,36 @@
-header p.footnote {
-	font-size: 12px; line-height: 1.5; color: #666; margin: 22px 0 0 0;
+header {
+	ul.series-breadcrumb {
+		padding-top: 18px;
+		font-size: 12px;
+		font-weight: bold;
+		text-transform: lowercase;
+		color: #6d8ac4;
+		margin: 0 0 11px 0;
+		
+		li { 
+			display: inline;
+			padding-right: 14px;
+			background: url('../img/icon_arrow_gray_ccc.png') no-repeat right;
+			margin-right: 3px; 
+			
+			&.last { background: none; }
+		}
+		a { opacity: 0.5; }
+	}
+	p.footnote {
+		font-size: 12px; 
+		line-height: 1.5; 
+		color: #666; 
+		margin: 22px 0 0 0;
+	}
+	p.project-credits {
+		color: #999;
+		margin-top: 15px;
+		margin-bottom: 0;
+		font-size: 11px;
+		line-height: 1.5;
+		font-style: italic;
+	}
 }
 
 .state-filters {
@@ -51,13 +82,6 @@ header p.footnote {
         padding: 22px 22px;
         background-color: #ddd;
     }
-    .card-footer {
-    	margin: 0 22px 11px 22px;
-    	padding-top: 11px;
-    	border-top: 1px solid #ddd;
-
-    	h3 { font-size: 12px; opacity: .6; }
-    }
     .card-content {
     	padding: 22px;
 
@@ -83,6 +107,7 @@ header p.footnote {
 
     		&.quote {
 				padding-left: 28px;
+				margin-left: -28px;
 				font: normal 20px/1.3 Georgia, serif;
 				position: relative;
 
@@ -183,15 +208,13 @@ header p.footnote {
 			padding: 15px 11px;
 			h3 .meta { float: none; display: block; margin-top: 3px; }
 		}
-		.card-footer {
-			margin: 11px;
-		}
 		.card-content {
 			padding: 11px;
 			h4,
 			.report-info,
 			.fine-info { width: auto; float: none; margin-left: 0; }
 			h4 { margin-bottom: 11px; }
+			p.quote { margin-left: 0; }
 		}
 	}
 	.state-filters {

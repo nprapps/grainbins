@@ -9,10 +9,19 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12">
+				<ul class="series-breadcrumb">
+					<li><a href="http://www.npr.org/sections/investigations/">NPR News Investigations</a></li>
+					<li class="last"><a href="##TODO-NEED-LINK##">NEED TITLE Grain Bin Series</a></li>
+				</ul>
+			
 				<h1>{{ PROJECT_NAME }}</h1>
 				<h2>Brief intro to this grim app.</h2>
 				<p class="footnote">
 					<strong>Note:</strong> The data come from the U.S. Occupational Safety and Health Administration worksite inspection database, known as IMIS. In some cases, grain incident details — such as victim names and ages — were added by NPR based on news reports and public records. The incident narratives, however, were written entirely by the agency and not edited.
+				</p>
+				<p class="project-credits">
+					Credits: Howard Berkes, Matt Stiles, Jeremy Bowers, Alicia Cypress, Christopher Groskopf, Alyson Hurt and Katie Zhu / NPR<br>
+					Questions? Problems? E-mail <a href="mailto:##NEED-EMAIL##">NEED-EMAIL@npr.org</a>.
 				</p>
 			</div>
 		</div>
@@ -83,16 +92,6 @@
 							</div>
 						</div>
 
-						<div class="card-footer">
-							<h3>
-								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>,
-								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
-								<span class="meta">
-									<span class="date">{% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Date unknown{% endif %}</span>
-									<span class="state">near {% if incident.postofficename %}{{ incident.postofficename }}, {{ incident.state }}{% else %}{{ incident.state }}{% endif %}</span>
-								</span>
-							</h3>
-						</div>
 					</div>
 				{% endfor %}
 			</div>
