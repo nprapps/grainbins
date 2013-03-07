@@ -1,5 +1,25 @@
-header p.footnote {
-	font-size: 12px; line-height: 1.5; color: #666; margin: 22px 0 0 0;
+header {
+	ul.series-breadcrumb {
+		padding-top: 18px;
+		font-size: 12px;
+		font-weight: bold;
+		text-transform: lowercase;
+		color: #6d8ac4;
+		margin: 0 0 11px 0;
+		
+		li { 
+			display: inline;
+			padding-right: 14px;
+			background: url('../img/icon_arrow_gray_ccc.png') no-repeat right;
+			margin-right: 3px; 
+			
+			&.last { background: none; }
+		}
+		a { opacity: 0.5; }
+	}
+	p.footnote {
+		font-size: 12px; line-height: 1.5; color: #666; margin: 22px 0 0 0;
+	}
 }
 
 .state-filters {
