@@ -25,10 +25,13 @@
 	<div class="container">
         <div class="row">
             <div class="span12 state-filters">
-                <a href="javascript:;" class="filter-state active" data-state="ALL">Show all</a>
-                {% for state in states %}
-                    <a href="javascript:;" class="filter-state" data-state="{{ state }}">{{ state }}</a>
-                {% endfor %}
+            	<h4>Filter By State</h4>
+            	<div id="filter-state-buttons">
+					<a href="javascript:;" class="filter-state active" data-state="ALL">Show All</a>
+					{% for state in states %}
+						<a href="javascript:;" class="filter-state" data-state="{{ state }}">{{ state }}</a>
+					{% endfor %}
+				</div>
             </div>
         </div>
 

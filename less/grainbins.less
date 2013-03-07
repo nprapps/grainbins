@@ -3,12 +3,28 @@ header p.footnote {
 }
 
 .state-filters {
-    margin-bottom: 10px;
-    .filter-state {
-        padding: 3px;
+	font-size: 14px;
+    margin-bottom: 22px;
 
+	h4 { display: none; }
+    .filter-state {
+    	display: inline-block;
+        line-height: 40px;
+        border: 1px solid #fff;
+        text-align: center;
+        color: #6d8ac4;
+        padding: 0 3px;
+
+        &:first-child {
+        	width: auto;
+        	padding: 0;
+        	
+        	&.active { padding: 0 3px; }
+        }
         &.active {
-            background-color: lightgray;
+            color: #ccc;
+            font-weight: bold;
+            border: 1px solid #ddd;
         }
     }
 }
@@ -124,6 +140,13 @@ header p.footnote {
     }
 }
 
+@media (max-width: 767px) {
+	.state-filters {
+		.filter-state {
+			min-width: 42px;
+		}
+	}
+}
 @media (max-width: 600px) {
 	#cards .card-header h3 {
 		font-size: 16px;
@@ -149,6 +172,29 @@ header p.footnote {
 			.report-info, 
 			.fine-info { width: auto; float: none; margin-left: 0; }
 			h4 { margin-bottom: 11px; }
+		}
+	}
+	.state-filters {
+		h4 {
+			display: block;
+			cursor: pointer;
+			line-height: 44px;
+			padding: 0 20px;
+			background-color: #7598c9;
+			color: white;
+			font-size: 13px;
+			font-weight: bold;
+			-webkit-font-smoothing: antialiased;
+			
+			&:hover { opacity: 0.7; }
+			&:before { content: '\0025B6'; width: 22px; display: inline-block; }
+			&.active:before { content: '\0025BC'; }
+			span { display: inline; }
+		}
+		#filter-state-buttons {
+			display: none;
+			
+			&.active { display: block; }
 		}
 	}
 }
