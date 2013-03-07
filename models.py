@@ -11,26 +11,41 @@ class Incident(Model):
     Inspection_no is _sorta_ a primary key.
     But some of them have dots and stuff in them.
     """
-    inspection_no = PrimaryKeyField()
+    # First round of fields.
+    inspection_no = CharField()
     name = CharField()
     age = IntegerField()
-    incident_date = CharField()
+    incident_date = PrimaryKeyField()
     state = CharField()
     zip_code = IntegerField()
     initial_fine = IntegerField()
     current_fine = IntegerField()
     narrative = TextField()
 
+    # Second round of fields.
+    postofficename = CharField()
+    lat = CharField()
+    long = CharField()
+    sqmiles = FloatField()
+    pop2010 = CharField()
+    cityfips = CharField()
+
     class Meta:
         database = db
         db_table = 'grain'
+
+    def osha_url(self):
+        """
+        Return the OSHA URL for this incident.
+        """
+        return 'http://www.osha.gov/pls/imis/establishment.inspection_detail?id=%s' % self.inspection_no
 
     def clean_incident_date(self):
         """
         Return a prettified version of the incident date.
         """
         date = datetime.date(
-            int(self.incident_date.split('-')[0].strip()),
-            int(self.incident_date.split('-')[1].strip()),
-            int(self.incident_date.split('-')[2].strip()))
+            int(str(self.incident_date)[0:4].strip()),
+            int(str(self.incident_date)[4:6].strip()),
+            int(str(self.incident_date)[6:8].strip()))
         return date.strftime('%B %e, %Y')

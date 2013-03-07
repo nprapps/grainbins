@@ -43,6 +43,7 @@
 							<h3>
 								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>,
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
+								<span>&nbsp;<a href="{{ incident.osha_url() }}">Detail</a></span>
 								<span class="meta">
 									<span class="date">{% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Date unknown{% endif %}</span>
 									<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
@@ -64,9 +65,9 @@
 							<div class="fines">
 								<h4>OSHA Fines Assessed</h4>
 								<div class="fine-info">
-									<p class="fine-initial"><strong>Initial fine:</strong> 
+									<p class="fine-initial"><strong>Initial fine:</strong>
 										<span class="amt-wrap">
-											<span class="bar" data-amt="{{ incident.initial_fine }}"></span> 
+											<span class="bar" data-amt="{{ incident.initial_fine }}"></span>
 											<span class="amt">{% if incident.initial_fine %}${{ incident.initial_fine }}{% else %}Unknown{% endif %}</span>
 										</span>
 									</p>
