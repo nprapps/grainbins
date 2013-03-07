@@ -4,7 +4,8 @@ $(function() {
     var $state_btns = $('#filter-state-buttons');
     var $states = $('.filter-state');
 
-    var max_bar_amt = 1600000; // per @stiles
+    var max_bar_amt = 1624000; // per @stiles
+    var reset_max_bar_amt = 555000;
     
     // state filters
     $states.click(function() {
@@ -35,7 +36,14 @@ $(function() {
     $($bars).each(function() {
     	var this_amt = parseInt($(this).attr('data-amt'));
     	if (!isNaN(this_amt)) {
-    		var this_width = (this_amt/max_bar_amt) * 100;
+    		var parent_id = $(this).parents('.card').attr('id');
+    		var this_width;
+
+    		if (parent_id == '313900177.0' || parent_id == '312142805.0') {
+				this_width = (this_amt/max_bar_amt) * 100;
+			} else {
+				this_width = (this_amt/reset_max_bar_amt) * 100;
+			}
     		$(this).width(this_width + '%');
     	}
     });
