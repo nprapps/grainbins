@@ -61,34 +61,28 @@
 
 						<div class="card-content">
 							<div class="coroner-report">
-								<h4>
-									Accident Summary
-								</h4>
-								<div class="report-info">
-									{% if incident.narrative %}
-										<p class="quote"><span>&ldquo;</span>{% autoescape False %}{{ incident.narrative }}{% endautoescape %}</p>
-									{% else %}
-										<p>OSHA accident investigation summary not available.</p>
-									{% endif %}
-									<p class="full-report"><a href="{{ incident.osha_url() }}">Full Report &rsaquo;</a></p>
-								</div>
+								<h4>Accident Summary</h4>
+								{% if incident.narrative %}
+									<p class="quote"><span class="quotemark">&ldquo;</span>{% autoescape False %}{{ incident.narrative }}{% endautoescape %}</p>
+								{% else %}
+									<p>OSHA accident investigation summary not available.</p>
+								{% endif %}
+								<p class="full-report"><a href="{{ incident.osha_url() }}">Full Report &rsaquo;</a></p>
 							</div>
 							<div class="fines">
 								<h4>OSHA Fines Assessed</h4>
-								<div class="fine-info">
-									<p class="fine-initial"><strong>Initial fine:</strong>
-										<span class="amt-wrap">
-											<span class="bar" data-amt="{{ incident.initial_fine }}"></span>
-											<span class="amt">{% if incident.initial_fine %}${{ incident.clean_fine_amount(incident.initial_fine) }}{% else %}Unknown{% endif %}</span>
-										</span>
-									</p>
-									<p class="fine-final"><strong>After appeal:</strong>
-										<span class="amt-wrap">
-											<span class="bar" data-amt="{{ incident.current_fine }}"></span>
-											<span class="amt">{% if incident.current_fine %}${{ incident.clean_fine_amount(incident.current_fine) }}{% else %}Unknown{% endif %}</span>
-										</span>
-									</p>
-								</div>
+								<p class="fine-initial"><strong>Initial fine:</strong>
+									<span class="amt-wrap">
+										<span class="bar" data-amt="{{ incident.initial_fine }}"></span>
+										<span class="amt">{% if incident.initial_fine %}${{ incident.clean_fine_amount(incident.initial_fine) }}{% else %}Unknown{% endif %}</span>
+									</span>
+								</p>
+								<p class="fine-final"><strong>After appeal:</strong>
+									<span class="amt-wrap">
+										<span class="bar" data-amt="{{ incident.current_fine }}"></span>
+										<span class="amt">{% if incident.current_fine %}${{ incident.clean_fine_amount(incident.current_fine) }}{% else %}Unknown{% endif %}</span>
+									</span>
+								</p>
 							</div>
 						</div>
 

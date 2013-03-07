@@ -89,7 +89,7 @@ header {
     		font-size: 15px;
     		line-height: 1.5;
     		color: #666;
-    		margin-top: 0;
+    		margin: 0 0 11px 0;
     	}
 
     	p {
@@ -102,7 +102,7 @@ header {
 				font: normal 20px/1.3 Georgia, serif;
 				position: relative;
 
-				span {
+				.quotemark {
 					position: absolute;
 					left: -1px;
 					top: -14px;
@@ -111,12 +111,12 @@ header {
 					font-weight: bold;
 					color: #787878;
 				}
-                span.source {
+                .source {
                     position:relative;
                     left:0;
                     top:0;
                     display:inline;
-                    font-size:15px;
+                    font-size:80%;
                     font-weight:normal;
                 }
 			}
@@ -183,26 +183,24 @@ header {
 		.meta { float: none; display: block; margin-top: 3px; }
 	}
 	#cards .card-content {
-		p.quote { font-size: 17px; }
-		p.quote span { font-size: 42px; }
-        p.quote span.source { font-size: 15px; }
+		p.quote { 
+			font-size: 17px; 
+			.quotemark { font-size: 42px; }
+		}
+		.coroner-report {
+			width: auto;
+			float: none;
+		}
+    	.fines {
+    		width: auto;
+    		float: none;
+    		margin: 22px 0 11px 0;
+    		border-top: 1px solid #ddd;
+    		padding-top: 22px;
+    	}
 	}
 }
 @media (max-width: 480px) {
-	#cards {
-		.card-header {
-			padding: 15px 11px;
-			h3 .meta { float: none; display: block; margin-top: 3px; }
-		}
-		.card-content {
-			padding: 11px;
-			h4,
-			.report-info,
-			.fine-info { width: auto; float: none; margin-left: 0; }
-			h4 { margin-bottom: 11px; }
-			p.quote { margin-left: 0; }
-		}
-	}
 	.state-filters {
 		h4 {
 			display: block;
@@ -224,6 +222,15 @@ header {
 			display: none;
 
 			&.active { display: block; }
+		}
+	}
+	#cards {
+		.card-header {
+			padding: 15px 11px;
+			h3 .meta { float: none; display: block; margin-top: 3px; }
+		}
+		.card-content {
+			padding: 11px;
 		}
 	}
 }
