@@ -1,9 +1,12 @@
 import datetime
+import locale
 
 from peewee import *
 
 db = SqliteDatabase('data/grain.db')
 
+# Set locale to US for comma printing.
+locale.setlocale(locale.LC_ALL, '')
 
 class Incident(Model):
     """
@@ -49,3 +52,14 @@ class Incident(Model):
             int(str(self.incident_date)[4:6].strip()),
             int(str(self.incident_date)[6:8].strip()))
         return date.strftime('%B %e, %Y')
+
+    def clean_fine_amount(self, fine):
+        """
+        Return the fine amount with commas.
+        """
+        if fine:
+            # Handle "none" fines
+            commafied_fine = locale.format("%d", fine, grouping=True)
+            return commafied_fine
+        else:
+            return fine
