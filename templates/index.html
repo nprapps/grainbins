@@ -43,23 +43,25 @@
 							<h3>
 								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>,
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
-								<span>&nbsp;<a href="{{ incident.osha_url() }}">Detail</a></span>
 								<span class="meta">
 									<span class="date">{% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Date unknown{% endif %}</span>
-									<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
+									<span class="state">near {% if incident.postofficename %}{{ incident.postofficename }}, {{ incident.state }}{% else %}{{ incident.state }}{% endif %}</span>
 								</span>
 							</h3>
 						</div>
 
 						<div class="card-content">
 							<div class="coroner-report">
-								<h4>Coroner's Report</h4>
+								<h4>
+									Accident Summary 
+								</h4>
 								<div class="report-info">
 									{% if incident.narrative %}
 										<p class="quote"><span>&ldquo;</span>{{ incident.narrative }}</p>
 									{% else %}
-										<p>This person's story could not be found.</p>
+										<p>OSHA accident investigation summary not available.</p>
 									{% endif %}
+									<p class="full-report"><a href="{{ incident.osha_url() }}">Full Report &rsaquo;</a></p>
 								</div>
 							</div>
 							<div class="fines">
@@ -87,7 +89,7 @@
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
 								<span class="meta">
 									<span class="date">{% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Date unknown{% endif %}</span>
-									<span class="state">State: {% if incident.state %}{{ incident.state }}{% else %}Unknown{% endif %}</span>
+									<span class="state">near {% if incident.postofficename %}{{ incident.postofficename }}, {{ incident.state }}{% else %}{{ incident.state }}{% endif %}</span>
 								</span>
 							</h3>
 						</div>
