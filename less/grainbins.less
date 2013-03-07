@@ -148,27 +148,29 @@ header {
     		float: right;
     		
     		p { 
-    			margin-bottom: 0;
-    			height: 1.7em;
-    			overflow: hidden;
+    			margin-bottom: 3px;
+    			
+    			&:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
     		}
     		strong {
-    			width: 25%;
+    			width: 40%;
     			display: inline-block;
     			float: left;
     		}
 			.amt-wrap {
-				width: 75%;
+				width: 60%;
 				display: inline-block;
 				float: right;
 				position: relative;
+				background-color: #e0e0e0;
+				height: 1.6em;
+				overflow: hidden;
 			}
 			.bar {
 				display: inline-block;
 				background-color: #bccae5;
 				width: 0%;
-				height: 1.5em;
-				opacity: .7;
+				height: 1.6em;
 			}
 			.amt {
 				position: absolute;
@@ -178,6 +180,12 @@ header {
     }
 }
 
+@media (min-width: 1200px) {
+	#cards .card-content .fines {
+		strong { width: 25%; }
+		.amt-wrap { width: 75%; }	
+	}
+}
 @media (max-width: 767px) {
 	.state-filters {
 		.filter-state {
@@ -185,7 +193,7 @@ header {
 		}
 	}
 }
-@media (max-width: 650px) {
+@media (max-width: 675px) {
 	#cards {
 		.card-header {
 			font-size: 16px; 
