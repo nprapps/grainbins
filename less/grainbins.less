@@ -68,30 +68,41 @@ header {
 		border: 1px solid #ddd;
 		margin-bottom: 33px;
 	}
-	h3 {
-		color: #444;
-		margin: 0;
-		font-size: 18px;
-
-		.name { font-weight: bold; }
-		.age { font-size: 80%; color: #666; }
-		.meta { font-size: 80%; color: #666; float: right; padding-top: 3px; }
-		.state { padding-left: 16px; }
-	}
     .card-header {
         padding: 22px 22px;
         background-color: #ddd;
+		font-size: 18px;
+		color: #444;
+
+    	&:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+		h3 {
+			font-size: 18px;
+			color: #444;
+			margin: 0;
+			width: 50%;
+			float: left;
+	
+			.name { font-weight: bold; }
+			.age { font-size: 80%; color: #666; }
+		}
+		.meta { 
+			width: 50%;
+			float: right; 
+			font-size: 80%; 
+			color: #666; 
+			text-align: right;
+		}
     }
     .card-content {
     	padding: 22px;
-
+    	
+    	&:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
     	h4 {
     		font-size: 15px;
     		line-height: 1.5;
     		color: #666;
     		margin: 0 0 11px 0;
     	}
-
     	p {
     		color: #454545;
     		margin-bottom: 11px;
@@ -165,9 +176,6 @@ header {
 			}
     	}
     }
-	.card-content:after {
-		content: "."; display: block; height: 0; clear: both; visibility: hidden;
-	}
 }
 
 @media (max-width: 767px) {
@@ -178,26 +186,39 @@ header {
 	}
 }
 @media (max-width: 650px) {
-	#cards .card-header h3 {
-		font-size: 16px;
-		.meta { float: none; display: block; margin-top: 3px; }
-	}
-	#cards .card-content {
-		p.quote { 
-			font-size: 17px; 
-			.quotemark { font-size: 42px; }
+	#cards {
+		.card-header {
+			font-size: 16px; 
+
+			 h3 { 
+				font-size: 16px; 
+				width: auto; 
+				float: none;
+			}
+			.meta { 
+				width: auto; 
+				float: none; 
+				margin-top: 3px;
+				text-align: left;
+			}
 		}
-		.coroner-report {
-			width: auto;
-			float: none;
+		.card-content {
+			p.quote { 
+				font-size: 17px; 
+				.quotemark { font-size: 42px; }
+			}
+			.coroner-report {
+				width: auto;
+				float: none;
+			}
+			.fines {
+				width: auto;
+				float: none;
+				margin: 22px 0 11px 0;
+				border-top: 1px solid #ddd;
+				padding-top: 22px;
+			}
 		}
-    	.fines {
-    		width: auto;
-    		float: none;
-    		margin: 22px 0 11px 0;
-    		border-top: 1px solid #ddd;
-    		padding-top: 22px;
-    	}
 	}
 }
 @media (max-width: 480px) {

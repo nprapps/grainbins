@@ -53,11 +53,11 @@
 							<h3>
 								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>,
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
-								<span class="meta">
-									<span class="date">{% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Date unknown{% endif %}</span>
-									<span class="state">near {% if incident.postofficename %}{{ incident.postofficename }}, {{ incident.state }}{% else %}{{ incident.state }}{% endif %}</span>
-								</span>
 							</h3>
+							<div class="meta">
+								<span class="date">{% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Date unknown{% endif %},</span>
+								<span class="state">{% if incident.postofficename %}near {{ incident.postofficename }}, {{ incident.state }}{% else %}in {{ incident.state }}{% endif %}</span>
+							</div>
 						</div>
 
 						<div class="card-content">
