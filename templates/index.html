@@ -68,7 +68,7 @@
 							<h3>
 								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>,
 								<span class="age">{% if incident.age %}{{ incident.age }} years old{% else %}age unknown{% endif %}</span>
-                                <span class="link">[<a href="#{{ slug(incident) }}">#</a>]</span>
+                                <span class="link"><a href="#{{ slug(incident) }}">[#]</a></span>
 							</h3>
 							<div class="meta">
 								<span class="date">{% if incident.incident_date %}{{ incident.clean_incident_date() }}{% else %}Date unknown{% endif %},</span>
