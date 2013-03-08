@@ -104,6 +104,10 @@
 									</span>
 								</p>
 							</div>
+							<div class="incident-map">
+								<img src="img/maps/{{ incident.inspection_no }}.png" alt="map" />
+								<p>{% if incident.postofficename %}near {{ incident.postofficename }}, {{ incident.state }}{% else %}in {{ incident.state }}{% endif %}</p>
+							</div>
 						</div>
 
 					</div>
