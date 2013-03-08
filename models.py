@@ -9,6 +9,7 @@ db = SqliteDatabase('data/grain.db')
 # Set locale to US for comma printing.
 locale.setlocale(locale.LC_ALL, '')
 
+
 class Incident(Model):
     """
     A single incident.
@@ -37,6 +38,14 @@ class Incident(Model):
     class Meta:
         database = db
         db_table = 'grain'
+
+    def get_state_img(self):
+        dec = str(self.inspection_no).split('.0')
+        print dec[0], dec[1]
+        if dec[1] == None:
+            return 'img/maps/%s.png' % self.inspection_no
+        else:
+            return 'img/maps/%s.png' % dec[0]
 
     def osha_url(self):
         """
