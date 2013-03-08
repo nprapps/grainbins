@@ -1,5 +1,6 @@
 import datetime
 import locale
+import math
 
 from peewee import *
 
@@ -52,6 +53,12 @@ class Incident(Model):
             int(str(self.incident_date)[4:6].strip()),
             int(str(self.incident_date)[6:8].strip()))
         return date.strftime('%B %e, %Y')
+
+    def fine_percent_reduction(self):
+        if self.initial_fine and self.current_fine:
+            fine_reduction = (float(self.initial_fine) - float(self.current_fine))
+            percent_decrease = fine_reduction / float(self.initial_fine)
+            return int(percent_decrease * 100)
 
     def clean_fine_amount(self, fine):
         """
