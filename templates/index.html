@@ -2,6 +2,7 @@
 
 {% block extra_css %}
     {{ CSS.push('less/grainbins.less') }}
+    {{ CSS.push('css/stateface.css') }}
 {% endblock %}
 
 {% block header_content %}
@@ -39,7 +40,7 @@
             	<div id="filter-state-buttons">
 					<a href="javascript:;" class="filter-state active" data-state="ALL">Show All States</a>
 					{% for state in states %}
-						<a href="javascript:;" class="filter-state" data-state="{{ state }}">{{ state }}</a>
+                    <a href="javascript:;" class="filter-state" data-state="{{ state }}"><span class="stateface stateface-{{ state.lower() }}"></span>{{ state }}</a>
 					{% endfor %}
 				</div>
             </div>
