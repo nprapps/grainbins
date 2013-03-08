@@ -73,11 +73,6 @@
 							</div>
 							<div class="fines">
 								<h4>OSHA Fines Assessed</h4>
-                                                                <p class="fine-reduction"><strong>Reduction:</strong>
-                                                                        <span class="amt-wrap reduction">
-                                                                                <span class="amt">{% if incident.fine_percent_reduction() %}{{ incident.fine_percent_reduction() }}%{% else %}N/A{% endif %}</span>
-                                                                        </span>
-                                                                </p>
 								<p class="fine-initial"><strong>Initial fine:</strong>
 									<span class="amt-wrap">
 										<span class="bar" data-amt="{{ incident.initial_fine }}"></span>
@@ -87,7 +82,10 @@
 								<p class="fine-final"><strong>After appeal:</strong>
 									<span class="amt-wrap">
 										<span class="bar" data-amt="{{ incident.current_fine }}"></span>
-										<span class="amt">{% if incident.current_fine %}${{ incident.clean_fine_amount(incident.current_fine) }}{% else %}Unknown{% endif %}</span>
+										<span class="amt">
+											{% if incident.current_fine %}${{ incident.clean_fine_amount(incident.current_fine) }}{% else %}Unknown{% endif %}
+											{% if incident.fine_percent_reduction() %}<span class="fine-reduction">({{ incident.fine_percent_reduction() }}% reduction)</span>{% endif %}
+										</span>
 									</span>
 								</p>
 							</div>
