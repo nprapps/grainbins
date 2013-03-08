@@ -9,13 +9,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12">
-			
+
 				<div class="introduction">
 					<ul class="series-breadcrumb">
 						<li><a href="http://www.npr.org/sections/investigations/">NPR News Investigations</a></li>
 						<li class="last"><a href="##TODO-NEED-LINK##">NEED TITLE Grain Bin Series</a></li>
 					</ul>
-	
+
 					<h1>{{ PROJECT_NAME }}</h1>
 					<h2>Cras ac odio in ipsum egestas tempor. Pellentesque vitae felis neque. Duis aliquet diam tellus. Ut fermentum tortor ut nisl viverra tincidunt. Nunc semper malesuada neque, at sagittis risus placerat quis. In quis nulla libero, et laoreet magna. Donec interdum consequat risus, et fermentum dui laoreet id. </h2>
 
@@ -105,7 +105,7 @@
 								</p>
 							</div>
 							<div class="incident-map">
-								<img src="img/maps/{{ incident.inspection_no }}.png" alt="map" />
+								<img src="{{ incident.get_state_img() }}" alt="map" />
 								<p>{% if incident.postofficename %}near {{ incident.postofficename }}, {{ incident.state }}{% else %}in {{ incident.state }}{% endif %}</p>
 							</div>
 						</div>
