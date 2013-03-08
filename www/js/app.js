@@ -39,7 +39,7 @@ $(function() {
     		var parent_id = $(this).parents('.card').attr('id');
     		var this_width;
 
-    		if (parent_id == '313900177.0' || parent_id == '312142805.0') {
+    		if (parent_id == 'steven-lee-mc-laughlin-sd' || parent_id == 'cody-rigsby-wiley-co') {
 				this_width = (this_amt/max_bar_amt) * 100;
 			} else {
 				this_width = (this_amt/reset_max_bar_amt) * 100;

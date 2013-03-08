@@ -23,7 +23,17 @@ def index():
     incidents = list(incidents_with_age) + list(incidents_without_age)
     states = [i.state for i in Incident.select(Incident.state).distinct().order_by(Incident.state)]
 
-    return render_template('index.html', incidents=incidents, states=states, **make_context())
+    def slug(incident):
+        uniq = incident.name or 'unknown'
+        
+        if (incident.postofficename):
+            uniq += '-' + incident.postofficename
+
+        uniq += '-' +  incident.state
+
+        return uniq.lower().replace(' ', '-').replace('.', '').replace('--', '-')
+
+    return render_template('index.html', incidents=incidents, states=states, slug=slug, **make_context())
 
 @app.route('/widget.html')
 def widget():
