@@ -386,62 +386,45 @@ header {
 }
 @media (max-width: 480px) {
 	header { 
-		background-image: url('../img/bg-image-grain-bin-480.jpg');
-		background-size: auto;
+		background-image: none;
 		height: auto;
 		
 		.introduction { 
 			width: auto; 
 			height: auto;
-			margin: 200px -20px 0 -20px; 
-			padding: 22px 15px 26px 15px; 
+			margin: 0 -20px; 
+			padding: 22px 15px; 
 		}
-		ul.series-breadcrumb {
-			padding-top: 0;
-		}
+		ul.series-breadcrumb { padding-top: 0; }
 		h1, h2 { color: #666; }
-		p.caption { 
-			position: static; 
-			bottom: auto; 
-			margin: 11px 0 0 0;
-			font-size: 11px;
-		}
+		p.download-link { margin-bottom: 0; }
+		p.caption { display: none; }
 		a, a:link, a:visited { color: #4774cc; opacity: .7; }
 		a:hover, a:active { opacity: .4; }
 	}
 	footer { margin-top: 0; }
 	.state-filters {
 		h4 {
-			display: block;
-			cursor: pointer;
-			width: auto;
-			float: none;
-			line-height: 44px;
-			padding: 0 20px;
-			background-color: #7598c9;
-			color: white;
 			font-size: 13px;
+			color: #ccc;
+			margin: 8px 0 0 0;
+			width: 100px;
 			font-weight: bold;
 			-webkit-font-smoothing: antialiased;
-			margin-bottom: 3px;
-
-			&:hover { opacity: 0.7; }
-			&:before { content: '\0025B6'; width: 22px; display: inline-block; }
-			&.active:before { content: '\0025BC'; }
-			span { display: inline; }
 		}
 		#filter-state-buttons { display: none; }
 		#filter-state-dropdown {
 			display: block;
 
 			&.active { display: block; }
+			select { 
+				width: 150px;
+				margin-bottom: 0;
+			}
 		}
-			
 	}
 	#cards {
-		padding-top: 15px;
-		padding-left: 15px;
-		padding-right: 15px;
+		padding: 22px 15px 0 15px;
 
 		.card-header { padding: 14px 15px 9px 15px; }
 		.card-content {

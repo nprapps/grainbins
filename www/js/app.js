@@ -17,7 +17,9 @@ $(function() {
     $states.click(function() {
         filter_state($(this).data('state'));
     });
-    $state_drop.on('change', function(e) {
+    // using onblur: the change doesn't happen until the user clicks 'done' on iOS
+    // $state_drop_sel.on('blur', function(e) {
+    $state_drop_sel.on('change', function(e) {
     	filter_state(e.target.value);
     });
     function filter_state(state) {
@@ -34,11 +36,13 @@ $(function() {
         
         $state_hdr.removeClass('active');
     	$state_btns.removeClass('active');
+    	$state_drop.removeClass('active');
     }
     
     // css classes to show/hide only defined for mobile view
     $state_hdr.click(function() {
     	$state_hdr.toggleClass('active');
+    	$state_btns.toggleClass('active');
     	$state_drop.toggleClass('active');
     });
 
