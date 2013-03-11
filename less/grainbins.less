@@ -194,6 +194,7 @@ header {
     	.fines {
     		width: 35%;
     		float: right;
+    		margin-bottom: 135px; // to account for the map below it
 
     		p {
     			margin-bottom: 3px;
@@ -325,9 +326,22 @@ header {
 			.fines {
 				width: auto;
 				float: none;
-				margin: 22px 0 11px 0;
+				margin: 22px 0 0 0;
 				border-top: 1px solid #ddd;
 				padding-top: 22px;
+			}
+			.incident-map {
+				position: static;
+				bottom: auto;
+				right: auto;
+				width: auto;
+				margin-top: 22px;
+				border-top: 1px solid #ddd;
+				padding-top: 11px;
+				text-align: left;
+				
+				img { width: 90px; float: left; margin-right: 11px; }
+				p { margin-top: 35px; }
 			}
 		}
 	}
