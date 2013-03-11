@@ -18,6 +18,11 @@
 
 					<h1>{{ PROJECT_NAME }}</h1>
 					<h2>Cras ac odio in ipsum egestas tempor. Pellentesque vitae felis neque. Duis aliquet diam tellus. Ut fermentum tortor ut nisl viverra tincidunt. Nunc semper malesuada neque, at sagittis risus placerat quis. In quis nulla libero, et laoreet magna. Donec interdum consequat risus, et fermentum dui laoreet id. </h2>
+					
+					<p class="download-link">
+						<a href="https://docs.google.com/spreadsheet/pub?key=0AiINjEdvBDPadHBLNjdlX3hvaEFqbnNTZVBpSGZEbkE&single=true&gid=0&output=csv">Download This Dataset</a> | 
+						<a href="#footnotes">About This Data</a>
+					</p>
 
 					<p class="caption">
 						Photo: Grain Operator Austin Clubb surveys corn inside the Homestead Grain Facility at Amana Farms near Cedar Rapids, Iowa. (John Poole / NPR)
@@ -34,20 +39,6 @@
 {% block full_content %}
 <section id="cards">
 	<div class="container">
-		<div class="row">
-			<div class="span12 footnotes">
-
-				<p class="footnote">
-					<strong>Note:</strong> The data come from the U.S. Occupational Safety and Health Administration worksite inspection database, known as IMIS. In some cases, grain incident details — such as victim names and ages — were added by NPR based on news reports and public records. The incident narratives, however, were written entirely by the agency and not edited.
-					<strong><a href="https://docs.google.com/spreadsheet/pub?key=0AiINjEdvBDPadHBLNjdlX3hvaEFqbnNTZVBpSGZEbkE&single=true&gid=0&output=csv">Download This Dataset</a></strong> (CSV format)
-					| Questions? Problems? E-mail <a href="mailto:##NEED-EMAIL##">NEED-EMAIL@npr.org</a>.
-				</p>
-				<p class="credits">
-					Credits: Reporting and data analysis by Howard Berkes and Matt Stiles. Edited by Brian Boyer and Alicia Cypress. Design and development by Jeremy Bowers, Christopher Groskopf, Alyson Hurt and Katie Zhu.
-				</p>
-
-			</div>
-		</div>
         <div class="row">
             <div class="span12 state-filters">
             	<h4>Filter By State</h4>
@@ -112,6 +103,20 @@
 
 					</div>
 				{% endfor %}
+			</div>
+		</div>
+		<div class="row">
+			<div id="footnotes" class="span12">
+
+				<p class="footnote">
+					<strong>Note:</strong> The data come from the U.S. Occupational Safety and Health Administration worksite inspection database, known as IMIS. In some cases, grain incident details — such as victim names and ages — were added by NPR based on news reports and public records. The incident narratives, however, were written entirely by the agency and not edited.
+					<strong><a href="https://docs.google.com/spreadsheet/pub?key=0AiINjEdvBDPadHBLNjdlX3hvaEFqbnNTZVBpSGZEbkE&single=true&gid=0&output=csv">Download This Dataset</a></strong> (CSV format)
+					| Questions? Problems? E-mail <a href="mailto:##NEED-EMAIL##">NEED-EMAIL@npr.org</a>.
+				</p>
+				<p class="credits">
+					Credits: Reporting and data analysis by Howard Berkes and Matt Stiles. Edited by Brian Boyer and Alicia Cypress. Design and development by Jeremy Bowers, Christopher Groskopf, Alyson Hurt and Katie Zhu.
+				</p>
+
 			</div>
 		</div>
 	</div>

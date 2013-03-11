@@ -31,11 +31,17 @@ header {
 
 			&.last { background: none; }
 		}
-		a { color: #bbc9e5; }
-		a:hover, a:active { opacity: .7; }
 	}
 	h1 { color: #fff; }
 	h2 { color: #ccc; line-height: 1.4; }
+	p.download-link {
+		color: #666;
+		font-size: 12px;
+		margin-top: 11px;
+		
+		a { font-weight: bold; margin: 0 6px; }
+		a:first-child { margin-left: 0; }
+	}
 	p.caption {
 		font-size: 12px;
 		line-height: 1.4;
@@ -44,27 +50,7 @@ header {
 		position: absolute;
 		bottom: 22px;
 	}
-}
-
-.footnotes {
-	padding-bottom: 22px;
-	border-bottom: 1px solid #555;
-	margin-bottom: 22px;
-
-	p.footnote {
-		font-size: 11px;
-		line-height: 1.4;
-		color: #999;
-		margin: 0 0 11px 0;
-	}
-	p.credits {
-		color: #999;
-		margin: 0;
-		font-size: 11px;
-		line-height: 1.4;
-		font-style: italic;
-	}
-	a { color: #bbc9e5; }
+	a, a:link, a:visited { color: #bbc9e5; }
 	a:hover, a:active { opacity: .7; }
 }
 
@@ -253,6 +239,26 @@ header {
     }
 }
 
+#footnotes {
+	padding-bottom: 33px;
+
+	p.footnote {
+		font-size: 13px;
+		line-height: 1.4;
+		color: #ccc;
+		margin: 0 0 11px 0;
+	}
+	p.credits {
+		color: #999;
+		margin: 0;
+		font-size: 11px;
+		line-height: 1.4;
+		font-style: italic;
+	}
+	a { color: #bbc9e5; font-weight: bold; }
+	a:hover, a:active { opacity: .7; }
+}
+
 @media (min-width: 1200px) {
 	header {
 		.introduction { width: 32%; }
@@ -360,16 +366,16 @@ header {
 		}
 		ul.series-breadcrumb {
 			padding-top: 0;
-			a { color: #4774cc; opacity: .7; }
-			a:hover, a:active { opacity: .4; }
 		}
 		h1, h2 { color: #666; }
 		p.caption { 
 			position: static; 
 			bottom: auto; 
-			margin: 22px 0 0 0;
+			margin: 11px 0 0 0;
 			font-size: 11px;
 		}
+		a, a:link, a:visited { color: #4774cc; opacity: .7; }
+		a:hover, a:active { opacity: .4; }
 	}
 	footer { margin-top: 0; }
 	.state-filters {
