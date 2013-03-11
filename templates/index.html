@@ -25,7 +25,7 @@
 					</p>
 
 					<p class="caption">
-						Photo: Grain Operator Austin Clubb surveys corn inside the Homestead Grain Facility at Amana Farms near Cedar Rapids, Iowa. (John Poole / NPR)
+						Photo: Grain operator Austin Clubb surveys corn inside the Homestead Grain Facility at Amana Farms near Cedar Rapids, Iowa. (John Poole / NPR)
 					</p>
 
 				</div>
@@ -43,10 +43,18 @@
             <div class="span12 state-filters">
             	<h4>Filter By State</h4>
             	<div id="filter-state-buttons">
-					<a href="javascript:;" class="filter-state active" data-state="ALL">Show All States</a>
+					<a href="javascript:;" class="filter-state active" id="state-btn-ALL" data-state="ALL">Show All States</a>
 					{% for state in states %}
-						<a href="javascript:;" class="filter-state" data-state="{{ state }}">{{ state }}</a>
+						<a href="javascript:;" class="filter-state" id="state-btn-{{ state }}" data-state="{{ state }}">{{ state }}</a>
 					{% endfor %}
+				</div>
+            	<div id="filter-state-dropdown">
+            		<select>
+            			<option value="ALL" selected="selected">Show All States</option>
+					{% for state in states %}
+						<option value="{{ state }}">{{ state }}</option>
+					{% endfor %}
+					</select>
 				</div>
             </div>
         </div>

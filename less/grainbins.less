@@ -37,7 +37,7 @@ header {
 	p.download-link {
 		color: #666;
 		font-size: 12px;
-		margin-top: 11px;
+		margin-top: 13px;
 		
 		a { font-weight: bold; margin: 0 6px; }
 		a:first-child { margin-left: 0; }
@@ -57,15 +57,24 @@ header {
 .state-filters {
 	font-size: 14px;
     margin-bottom: 22px;
+    
+    h4 { 
+    	width: 125px; 
+    	float: left; 
+    }
+    #filter-state-buttons {
+    	margin-top: 4px;
+    	margin-left: 125px;
 
-	h4 { display: none; }
+    	&:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+    }
     .filter-state {
     	display: block;
     	float: left;
         line-height: 30px;
         text-align: center;
         color: #c4cee6;
-        padding: 0 6px;
+        width: 50px;
         margin: 0 2px 2px 0;
         background-color: #787878;
 
@@ -85,7 +94,9 @@ header {
             &:hover { opacity: 1; color: #666; cursor: default; }
         }
     }
-	#filter-state-buttons:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+    #filter-state-dropdown {
+    	display: none;
+    }
 }
 
 #cards {
@@ -403,6 +414,8 @@ header {
 		h4 {
 			display: block;
 			cursor: pointer;
+			width: auto;
+			float: none;
 			line-height: 44px;
 			padding: 0 20px;
 			background-color: #7598c9;
@@ -417,11 +430,13 @@ header {
 			&.active:before { content: '\0025BC'; }
 			span { display: inline; }
 		}
-		#filter-state-buttons {
-			display: none;
+		#filter-state-buttons { display: none; }
+		#filter-state-dropdown {
+			display: block;
 
 			&.active { display: block; }
 		}
+			
 	}
 	#cards {
 		padding-top: 15px;

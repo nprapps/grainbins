@@ -2,6 +2,8 @@ $(function() {
     var $cards = $('.card');
     var $state_hdr = $('.state-filters').find('h4');
     var $state_btns = $('#filter-state-buttons');
+    var $state_drop = $('#filter-state-dropdown');
+    var $state_drop_sel = $state_drop.find('select');
     var $states = $('.filter-state');
 
 //    var max_bar_amt = 1624000;
@@ -13,8 +15,12 @@ $(function() {
     
     // state filters
     $states.click(function() {
-        var state = $(this).data('state');
-
+        filter_state($(this).data('state'));
+    });
+    $state_drop.on('change', function(e) {
+    	filter_state(e.target.value);
+    });
+    function filter_state(state) {
         if (state == 'ALL') {
             $cards.show();
         } else {
@@ -22,17 +28,18 @@ $(function() {
             $cards.filter('.state-' + state).show();
         }
 
-        $states.removeClass('active');
-        $(this).addClass('active');
+		$states.removeClass('active');
+		$('#state-btn-' + state).addClass('active'); // highlight the button for desktop
+		$state_drop_sel.val(state); // select the dropdown item for mobile
         
         $state_hdr.removeClass('active');
     	$state_btns.removeClass('active');
-    });
+    }
     
     // css classes to show/hide only defined for mobile view
     $state_hdr.click(function() {
     	$state_hdr.toggleClass('active');
-    	$state_btns.toggleClass('active');
+    	$state_drop.toggleClass('active');
     });
 
     // size the bars
