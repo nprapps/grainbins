@@ -10,7 +10,7 @@ They will be exposed to users. Use environment variables instead.
 import os
 
 PROJECT_NAME = 'Grain Bin Deaths'
-DEPLOYED_NAME = 'grainbins'
+DEPLOYED_NAME = 'grainbins-9876hhiu78jkh89'
 REPOSITORY_NAME = 'grainbins'
 
 PRODUCTION_S3_BUCKETS = ['apps.npr.org', 'apps2.npr.org']
