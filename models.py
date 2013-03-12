@@ -41,7 +41,6 @@ class Incident(Model):
 
     def get_state_img(self):
         dec = str(self.inspection_no).split('.0')
-        print dec[0], dec[1]
         if dec[1] == None:
             return 'img/maps/%s.png' % self.inspection_no
         else:

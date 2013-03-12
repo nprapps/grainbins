@@ -25,7 +25,7 @@ def index():
 
     def slug(incident):
         uniq = incident.name or 'unknown'
-        
+
         if (incident.postofficename):
             uniq += '-' + incident.postofficename
 
@@ -82,7 +82,6 @@ def _app_config_js():
 def _static(path):
     try:
         with open('www/%s' % path) as f:
-            print guess_type(path)[0]
             return f.read(), 200, { 'Content-Type': guess_type(path)[0] }
     except IOError:
         abort(404)
