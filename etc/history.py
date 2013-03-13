@@ -11,6 +11,9 @@ import filecmp
 shutil.rmtree('.screencaptures', True)
 os.mkdir('.screencaptures')
 
+shutil.copyfile('etc/screencapture.js', '.screencapture.js')
+shutil.copyfile('etc/darkness.jpg', '.darkness.jpg')
+
 git = repo.Repo('.')
 history = git.revision_history(git.head())
 
@@ -42,6 +45,9 @@ for i, commit in enumerate(history):
 
         else:
             last_filename = filename
+
+os.remove('.screencapture.js')
+os.remove('.darkness.jpg')
 
 shutil.copyfile(last_filename, '.screencapture/0.jpg')
 
