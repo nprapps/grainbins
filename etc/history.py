@@ -41,5 +41,7 @@ for i, commit in enumerate(history):
         else:
             last_filename = filename
 
+shutil.copyfile(last_filename, '.screencapture/0.jpg')
+
 proc = subprocess.Popen(['ffmpeg', '-f', 'image2', '-r', '2', '-qscale', '2', '-pattern_type', 'glob', '-i', '*.jpg', 'video.mp4'], cwd='.screencaptures')
 proc.wait()
