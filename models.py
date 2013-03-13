@@ -31,8 +31,6 @@ class Incident(Model):
     postofficename = CharField()
     lat = CharField()
     long = CharField()
-    sqmiles = FloatField()
-    pop2010 = CharField()
     cityfips = CharField()
 
     class Meta:
