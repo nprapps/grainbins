@@ -27,7 +27,7 @@ for i, commit in enumerate(history):
     filename = '.screencaptures/%s.jpg' % timestamp
     print "%i Checking out commit %s" % (i, sha)
     envoy.run('git checkout %s' % sha)
-    r = envoy.run('phantomjs etc/screencapture.js %s' % filename)
+    r = envoy.run('phantomjs .screencapture.js %s' % filename)
     print r.std_out
     print r.std_err
     if not os.path.exists(filename):
@@ -39,7 +39,7 @@ for i, commit in enumerate(history):
         os.remove(filename)
 
     else:
-        if filecmp.cmp(filename, 'etc/darkness.jpg', False):
+        if filecmp.cmp(filename, '.darkness.jpg', False):
             print 'Removing darkness.'
             os.remove(filename)
 
