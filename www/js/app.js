@@ -6,19 +6,10 @@ $(function() {
     var $state_drop_sel = $state_drop.find('select');
     var $states = $('.filter-state');
 
-//    var max_bar_amt = 1624000;
-    var max_bar_amt = 1650000;
-    var max_bar_amt_display = '$1.65 million';
-//    var reset_max_bar_amt = 555000;
-    var reset_max_bar_amt = 600000;
-    var reset_max_bar_amt_display = "$600,000";
-    
     // state filters
     $states.click(function() {
         filter_state($(this).data('state'));
     });
-    // using onblur: the change doesn't happen until the user clicks 'done' on iOS
-    // $state_drop_sel.on('blur', function(e) {
     $state_drop_sel.on('change', function(e) {
     	filter_state(e.target.value);
     });
@@ -44,25 +35,5 @@ $(function() {
     	$state_hdr.toggleClass('active');
     	$state_btns.toggleClass('active');
     	$state_drop.toggleClass('active');
-    });
-
-    // size the bars
-    $bars = $('#cards').find('.bar');
-    $($bars).each(function() {
-    	var this_amt = parseInt($(this).attr('data-amt'));
-    	if (!isNaN(this_amt)) {
-			var $axis_label = $(this).parents('.fines').find('.axis-label').find('span');
-    		var parent_id = $(this).parents('.card').attr('id');
-    		var this_width;
-
-    		if (parent_id == 'steven-lee-mc-laughlin-sd' || parent_id == 'cody-rigsby-wiley-co') {
-				this_width = (this_amt/max_bar_amt) * 100;
-				$axis_label.empty().append(max_bar_amt_display);
-			} else {
-				this_width = (this_amt/reset_max_bar_amt) * 100;
-				$axis_label.empty().append(reset_max_bar_amt_display);
-			}
-    		$(this).width(this_width + '%');
-    	}
     });
 });
