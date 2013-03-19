@@ -9,7 +9,7 @@ They will be exposed to users. Use environment variables instead.
 
 import os
 
-PROJECT_NAME = 'Grain Bin Deaths'
+PROJECT_NAME = "'Buried in Grain'"
 DEPLOYED_NAME = 'buried-in-grain'
 REPOSITORY_NAME = 'grainbins'
 
@@ -23,19 +23,19 @@ S3_BUCKETS = []
 SERVERS = []
 DEBUG = True
 
-PROJECT_DESCRIPTION = 'Grain and bins.'
+PROJECT_DESCRIPTION = 'Nearly 180 people &mdash; including 18 teenagers &mdash; have been killed in grain-related entrapments at federally regulated facilities since 1984. Read about the incidents here.'
 SHARE_URL = 'http://%s/%s/' % (PRODUCTION_S3_BUCKETS[0], DEPLOYED_NAME)
 
 TWITTER = {
-    'TEXT': PROJECT_NAME,
+    'TEXT': '"He could still move his arms, so he kept trying to rescue Employee #2." Buried in Grain, from @nprnews',
     'URL': SHARE_URL
 }
 
 FACEBOOK = {
     'TITLE': PROJECT_NAME,
     'URL': SHARE_URL,
-    'DESCRIPTION': PROJECT_DESCRIPTION,
-    'IMAGE_URL': '',
+    'DESCRIPTION': "Employee #1, age 17, climbed on top of a rail car of corn after he had opened its bottom hopper to unload the grain. He was found about one hour later with his legs hanging from the bottom of the hopper.",
+    'IMAGE_URL': 'http://media.npr.org/assets/img/2013/03/19/grainbins__mg_0471-edit_wide-18ba5f2551acc5c391502d54a8db49da94874f75-s3.jpg',
     'APP_ID': '138837436154588'
 }
 
