@@ -84,6 +84,9 @@
 									<p>OSHA accident investigation summary not available.</p>
 								{% endif %}
 								<p class="full-report"><a href="{{ incident.osha_url() }}">Online report from OSHA &rsaquo;</a></p>
+								{% if incident.docurl %}
+                                    <p class="full-report"><a href="{{ incident.docurl }}">Read government documents about this case &rsaquo;</a></p>
+								{% endif %}
                                 <p class="back-to-top">
                                     <a href="#cards">Back to top &rsaquo;</a>
                                 </p>

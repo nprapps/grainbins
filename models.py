@@ -26,6 +26,7 @@ class Incident(Model):
     initial_fine = IntegerField()
     current_fine = IntegerField()
     narrative = TextField()
+    docurl = TextField()
 
     # Second round of fields.
     postofficename = CharField()
