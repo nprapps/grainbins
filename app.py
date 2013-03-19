@@ -35,6 +35,13 @@ def index():
 
     return render_template('index.html', incidents=incidents, states=states, slug=slug, **make_context())
 
+@app.route('/doc-grainbins.html')
+def doc_grainbins():
+    """
+    Document Cloud page
+    """
+    return render_template('doc-grainbins.html', **make_context())
+
 @app.route('/widget.html')
 def widget():
     """
