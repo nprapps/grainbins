@@ -59,7 +59,27 @@ class Incident(Model):
             int(str(self.incident_date)[0:4].strip()),
             int(str(self.incident_date)[4:6].strip()),
             int(str(self.incident_date)[6:8].strip()))
-        return date.strftime('%B %e, %Y')
+
+        def format_ap_month(month_number):
+            MONTHS_AP = {
+                1: 'Jan.',
+                2: 'Feb.',
+                3: 'March',
+                4: 'April',
+                5: 'May',
+                6: 'June',
+                7: 'July',
+                8: 'Aug.',
+                9: 'Sept.',
+                10: 'Oct.',
+                11: 'Nov.',
+                12: 'Dec.'
+            }
+            return MONTHS_AP[int(month_number)]
+
+        return '%s %s' % (
+            format_ap_month(date.strftime('%m')),
+            date.strftime('%e, %Y'))
 
     def fine_percent_reduction(self):
         if self.initial_fine and self.current_fine:
