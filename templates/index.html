@@ -41,14 +41,14 @@
             	<div id="filter-state-buttons">
 					<a href="javascript:;" class="filter-state active" id="state-btn-ALL" data-state="ALL">Show All States</a>
 					{% for state in states %}
-						<a href="javascript:;" class="filter-state" id="state-btn-{{ state }}" data-state="{{ state }}">{{ state }}</a>
+						<a href="javascript:;" class="filter-state" id="state-btn-{{ state.replace('.', '') }}" data-state="{{ state.replace('.', '') }}">{{ state }}</a>
 					{% endfor %}
 				</div>
             	<div id="filter-state-dropdown">
             		<select>
             			<option value="ALL" selected="selected">Show All States</option>
 					{% for state in states %}
-						<option value="{{ state }}">{{ state }}</option>
+						<option value="{{ state.replace('.', '') }}">{{ state }}</option>
 					{% endfor %}
 					</select>
 				</div>
@@ -58,7 +58,7 @@
 		<div class="row">
 			<div class="span12">
 				{% for incident in incidents %}
-                    <div id="{{ slug(incident) }}" class="card {% if incident.state %}state-{{ incident.state }}{% endif %}">
+                    <div id="{{ slug(incident) }}" class="card {% if incident.state %}state-{{ incident.state.replace('.', '') }}{% endif %}">
 						<div class="card-header">
 							<h3>
 								<span class="name">{% if incident.name %}{{ incident.name }}{% else %}Name unknown{% endif %}</span>,
