@@ -34,7 +34,7 @@ TWITTER = {
 FACEBOOK = {
     'TITLE': PROJECT_NAME,
     'URL': SHARE_URL,
-    'DESCRIPTION': '"He could still move his arms, so he kept trying to rescue Employee #2."',
+    'DESCRIPTION': '"He entered the bin to investigate when he was sucked under the grain and buried. Employee #1 died of asphyxia."',
     'IMAGE_URL': 'http://apps.npr.org/buried-in-grain/img/grain-bin.jpg',
     'APP_ID': '138837436154588'
 }
