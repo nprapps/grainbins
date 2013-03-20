@@ -28,7 +28,7 @@ SHARE_URL = 'http://%s/%s/' % (PRODUCTION_S3_BUCKETS[0], DEPLOYED_NAME)
 
 TWITTER = {
     'TEXT': '"He could still move his arms, so he kept trying to rescue Employee #2." Buried in Grain, from @nprnews',
-    'CARD_DESCRIPTION': 'Nearly 180 people &mdash; including 18 teenagers &mdash; have been killed in grain-related entrapments at federally regulated facilities since 1984. Read about the incidents here.'
+    'CARD_DESCRIPTION': 'Nearly 180 people &mdash; including 18 teenagers &mdash; have been killed in grain-related entrapments at federally regulated facilities since 1984. Read about the incidents here.',
     'URL': SHARE_URL
 }
 
