@@ -35,7 +35,7 @@ FACEBOOK = {
     'TITLE': PROJECT_NAME,
     'URL': SHARE_URL,
     'DESCRIPTION': "Employee #1, age 17, climbed on top of a rail car of corn after he had opened its bottom hopper to unload the grain. He was found about one hour later with his legs hanging from the bottom of the hopper.",
-    'IMAGE_URL': 'http://media.npr.org/assets/img/2013/03/19/grainbins__mg_0471-edit_wide-18ba5f2551acc5c391502d54a8db49da94874f75-s3.jpg',
+    'IMAGE_URL': 'http://apps.npr.org/buried-in-grain/img/grain-bin.jpg',
     'APP_ID': '138837436154588'
 }
 
