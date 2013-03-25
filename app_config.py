@@ -9,7 +9,7 @@ They will be exposed to users. Use environment variables instead.
 
 import os
 
-PROJECT_NAME = "'Buried In Grain'"
+PROJECT_NAME = 'Buried In Grain'
 DEPLOYED_NAME = 'buried-in-grain'
 REPOSITORY_NAME = 'grainbins'
 
