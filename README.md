@@ -20,7 +20,7 @@ Grain Bins
 About Grain Bins
 -------------------
 
-Text from @stiles incoming.
+An application for exploring data about grain bin fatalities.
 
 What's in here?
 ---------------
