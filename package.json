@@ -1,0 +1,15 @@
+{
+  "name": "grainbins",
+  "description": "Copyright 2013 NPR.  All rights reserved.  No part of these materials may be reproduced, modified, stored in a retrieval system, or retransmitted, in any form or by any means, electronic, mechanical or otherwise, without prior written permission from NPR.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nprapps/grainbins.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nprapps/grainbins/issues"
+  },
+  "dependencies": {
+    "less": "^3.0.4",
+    "universal-jst": "^1.0.5"
+  }
+}
